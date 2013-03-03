@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ country }}</h1>
+
+<p>Population: {{ country.population }}</p>
+<p>Government: {{ country.government_type }}</p>
+
+<h3>Background</h3>
+<p>{{ country.background }}</p>
+
+{% endblock %}

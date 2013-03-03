@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form well form-inline">
+    {{ form }}
+    <input type="submit" value="Search">
+</form>
+
+{% for country in countries %}
+<section>
+<h3><a href="{{ country.get_absolute_url }}">{{ country }}</a></h3>
+<p>{{ country.population }}</p>
+</section>
+{% endfor %}
+{% endblock %}
