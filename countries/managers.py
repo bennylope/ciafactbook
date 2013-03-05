@@ -6,7 +6,7 @@ class CountrySearchManager(models.Manager):
 
     def search(self, **kwargs):
         qs = self.get_query_set()
-        query = kwargs.get('query', '')
+        query = kwargs.get('q', '')
         government = kwargs.get('government', '')
         if government:
             qs = qs.filter(government_type=government)

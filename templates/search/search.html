@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form well form-inline">
+    {{ form }}
+    <input type="submit" value="Search">
+</form>
+
+{% if query %}
+<p>You searchd for &quot;{{ query }}&quot;</p>
+{% endif %}
+
+{% for result in page.object_list %}
+<section>
+<h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h3>
+<p>{{ country.population }}</p>
+</section>
+{% endfor %}
+
+{% endblock %}

@@ -9,5 +9,5 @@ GOVERNMENT_CHOICES = [('', '')] + [
 
 
 class CountrySearchForm(forms.Form):
-    query = forms.CharField(required=False)
+    q = forms.CharField(required=False)
     government = forms.ChoiceField(required=False, choices=GOVERNMENT_CHOICES)
