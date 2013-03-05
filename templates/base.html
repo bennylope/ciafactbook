@@ -3,16 +3,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Searchable World Fact Book</title>
+    <title>CIA World Factbook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="{{ STATIC_URL }}/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
+    <style type="text/css">
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 60px;
+        padding-bottom: 40px;
       }
     </style>
     <link href="{{ STATIC_URL }}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -40,27 +41,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/">World Fact Book</a>
+          <a class="brand" href="/">World Factbook</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
                 <li><a href="{% url 'country_list' %}">Countries List</a></li>
-              <li><a href="{% url 'basic_search' %}">Default Search</a></li>
+              <li><a href="{% url 'haystack_search' %}">Default Search</a></li>
               <li><a href="{% url 'custom_search' %}">Customized Search</a></li>
               <li><a href="{% url 'faceted_search' %}">Faceted Search</a></li>
             </ul>
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container">
-        {% block content %}
+        {% block content %}{% endblock %}
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <hr>
 
-        {% endblock %}
-
+      <footer>
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Ben Lopatin</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      </footer>
 
     </div> <!-- /container -->
 
