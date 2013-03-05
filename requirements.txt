@@ -1,1 +1,6 @@
 Django==1.5
+
+
+# Use django-haytstack 2.0, still in dev but with elasticsearch
+# support.
+-e git://github.com/toastdriven/django-haystack.git@1274a8d1bc5b34348a6dd9405284b91b1e246747#egg=django-haystack
