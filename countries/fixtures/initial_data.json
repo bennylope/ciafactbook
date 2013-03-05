@@ -1,0 +1,38 @@
+[
+{
+    "pk": 1, 
+    "model": "countries.country", 
+    "fields": {
+        "name": "Albania", 
+        "government_type": "parliamentary democracy", 
+        "background": "Albania declared its independence from the Ottoman Empire in 1912, but was conquered by Italy in 1939. Communist partisans took over the country in 1944. Albania allied itself first with the USSR (until 1960), and then with China (to 1978). In the early 1990s, Albania ended 46 years of xenophobic Communist rule and established a multiparty democracy. The transition has proven challenging as successive governments have tried to deal with high unemployment, widespread corruption, a dilapidated physical infrastructure, powerful organized crime networks, and combative political opponents. Albania has made progress in its democratic development since first holding multiparty elections in 1991, but deficiencies remain. International observers judged elections to be largely free and fair since the restoration of political stability following the collapse of pyramid schemes in 1997; however, there have been claims of electoral fraud in every one of Albania's post-Communist elections. The 2009 general elections resulted in a coalition government, the first such in the country's history. Albania joined NATO in April 2009 and is a potential candidate for EU accession. Although Albania's economy continues to grow, the country is still one of the poorest in Europe, hampered by a large informal economy and an inadequate energy and transportation infrastructure.", 
+        "lat": "41", 
+        "lng": "20", 
+        "population": 3002859
+    }
+},
+{
+    "pk": 2, 
+    "model": "countries.country", 
+    "fields": {
+        "name": "Colombia", 
+        "government_type": "republic", 
+        "background": "Colombia was one of the three countries that emerged from the collapse of Gran Colombia in 1830 (the others are Ecuador and Venezuela). A four-decade long conflict between government forces and anti-government insurgent groups, principally the Revolutionary Armed Forces of Colombia (FARC) heavily funded by the drug trade, escalated during the 1990s. More than 31,000 former paramilitaries had demobilized by the end of 2006 and the United Self Defense Forces of Colombia (AUC) as a formal organization had ceased to function. In the wake of the paramilitary demobilization, emerging criminal groups arose, whose members include some former paramilitaries. The insurgents lack the military or popular support necessary to overthrow the government, but continue attacks against civilians. Large areas of the countryside are under guerrilla influence or are contested by security forces. In October 2012, the Colombian Government started formal peace negotiations with the FARC aimed at reaching a definitive bilateral ceasefire and incorporating demobilized FARC members into mainstream society and politics. The Colombian Government has stepped up efforts to reassert government control throughout the country, and now has a presence in every one of its administrative departments. Despite decades of internal conflict and drug related security challenges, Colombia maintains relatively strong democratic institutions characterized by peaceful, transparent elections, and the protection of civil liberties.", 
+        "lat": "4", 
+        "lng": "-72", 
+        "population": 45239079
+    }
+},
+{
+    "pk": 3, 
+    "model": "countries.country", 
+    "fields": {
+        "name": "India", 
+        "government_type": "federal republic", 
+        "background": "The Indus Valley civilization, one of the world's oldest, flourished during the 3rd and 2nd millennia B.C. and extended into northwestern India. Aryan tribes from the northwest infiltrated onto the Indian subcontinent about 1500 B.C.; their merger with the earlier Dravidian inhabitants created the classical Indian culture. The Maurya Empire of the 4th and 3rd centuries B.C. - which reached its zenith under ASHOKA - united much of South Asia. The Golden Age ushered in by the Gupta dynasty (4th to 6th centuries A.D.) saw a flowering of Indian science, art, and culture. Islam spread across the subcontinent over a period of 700 years. In the 10th and 11th centuries, Turks and Afghans invaded India and established the Delhi Sultanate. In the early 16th century, the Emperor BABUR established the Mughal Dynasty which ruled India for more than three centuries. European explorers began establishing footholds in India during the 16th century. By the 19th century, Great Britain had become the dominant political power on the subcontinent. The British Indian Army played a vital role in both World Wars. Years of nonviolent resistance to British rule, led by Mohandas GANDHI and Jawaharlal NEHRU, eventually resulted in Indian independence, which was granted in 1947. Large-scale communal violence took place before and after the subcontinent partition into two separate states - India and Pakistan. The neighboring nations have fought three wars since independence, the last of which was in 1971 and resulted in East Pakistan becoming the separate nation of Bangladesh. India's nuclear weapons tests in 1998 emboldened Pakistan to conduct its own tests that same year. In November 2008, terrorists originating from Pakistan conducted a series of coordinated attacks in Mumbai, India's financial capital. Despite pressing problems such as significant overpopulation, environmental degradation, extensive poverty, and widespread corruption, economic growth following the launch of economic reforms in 1991 and a massive youthful population are driving India's emergence as a regional and global power.", 
+        "lat": "20", 
+        "lng": "77", 
+        "population": 1205073612
+    }
+}
+]
