@@ -2,8 +2,17 @@ import os
 import dj_database_url
 
 
+def env_var(key, default=None):
+    """Retrieves env vars and makes Python boolean replacements"""
+    val = os.environ.get(key, default)
+    if val == 'True':
+        val = True
+    elif val == 'False':
+        val = False
+    return val
 
-DEBUG = os.environ.get('DEBUG', False)
+
+DEBUG = env_var('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -60,7 +69,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(PROJECT_ROOT, 'media/'))
+MEDIA_ROOT = env_var('MEDIA_ROOT', os.path.join(PROJECT_ROOT, 'media/'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -77,12 +86,12 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.environ.get('STATIC_ROOT',
+STATIC_ROOT = env_var('STATIC_ROOT',
         os.path.join(PROJECT_ROOT, 'collectedstaticfiles/'))
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = os.environ.get('STATIC_URL', '/static/')
+STATIC_URL = env_var('STATIC_URL', '/static/')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -176,7 +185,7 @@ LOGGING = {
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': os.environ.get('BONSAI_URL', 'http://127.0.0.1:9200/'),
+        'URL': env_var('BONSAI_URL', 'http://127.0.0.1:9200/'),
         'INDEX_NAME': 'haystack',
     },
 }
