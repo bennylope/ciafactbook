@@ -1,4 +1,7 @@
 Django==1.5
+dj-database-url==0.2.1
+psycopg2==2.4.6
+gunicorn==0.17.2
 
 
 # Use django-haytstack 2.0, still in dev but with elasticsearch
