@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 
 from .managers import CountrySearchManager
 
+
 class BasePlace(models.Model):
     name = models.CharField(max_length=120)
     background = models.TextField()
