@@ -101,6 +101,8 @@ STATICFILES_DIRS = (
     (os.path.join(PROJECT_ROOT, 'static/')),
 )
 
+STATICFILES_STORAGE = env_var('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -110,7 +112,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'r$*+k=5f6h7+@-j(#9=+dm*c-7m7i34im30dz^o8$nvdy)p=$^'
+SECRET_KEY = env_var('SECRET_KEY', 'r$*+k=5f6h7+@-j(#9=+dm*c-7m7i34im30dz^o8$nvdy)p=$^')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -149,7 +151,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'raven.contrib.django.raven_compat',
     'haystack',
+    'storages',
     'countries',
 )
 
@@ -188,4 +192,15 @@ HAYSTACK_CONNECTIONS = {
         'URL': env_var('BONSAI_URL', 'http://127.0.0.1:9200/'),
         'INDEX_NAME': 'haystack',
     },
+}
+
+
+AWS_ACCESS_KEY_ID = env_var('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env_var('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env_var('AWS_STORAGE_BUCKET_NAME')
+
+ALLOWED_HOSTS = ['localhost', 'ciafactbook.herokuapp.com']
+
+RAVEN_CONFIG = {
+    'dsn': env_var('DSN', ''),
 }
