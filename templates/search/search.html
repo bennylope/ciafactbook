@@ -10,6 +10,15 @@
 <p>You searchd for &quot;{{ query }}&quot;</p>
 {% endif %}
 
+{% if facets.fields.government %}
+    <dt>Government type</dt>
+    {# Provide only the top 5 governments #}
+    {% for government in facets.fields.government|slice:":5" %}
+        <dd><a href="{{ request.get_full_path }}&amp;selected_facets=government_exact:{{ government.0|urlencode }}">{{ government.0 }}</a> ({{ government.1 }})</dd>
+    {% endfor %}
+{% else %}
+{% endif %}
+
 {% for result in page.object_list %}
 <section>
 <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h3>

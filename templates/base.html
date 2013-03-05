@@ -43,9 +43,10 @@
           <a class="brand" href="/">World Fact Book</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'country_list' %}">Countries List</a></li>
+              <li><a href="{% url 'basic_search' %}">Default Search</a></li>
+              <li><a href="{% url 'custom_search' %}">Customized Search</a></li>
+              <li><a href="{% url 'faceted_search' %}">Faceted Search</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
