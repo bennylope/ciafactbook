@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'south',
     'haystack',
     'storages',
+    'intl_orgs',
     'countries',
 )
 

@@ -1,19 +1,31 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from intl_orgs.models import InternationalOrganization
 from .managers import CountrySearchManager
 
 
-class BasePlace(models.Model):
+class Country(models.Model):
+    """
+    A model for storing primary data about countries and country-level
+    locations.
+    """
     name = models.CharField(max_length=120)
     background = models.TextField()
+    population = models.PositiveIntegerField(default=1)
+    government_type = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(blank=True, null=True, decimal_places=10,
             max_digits=13)
     lng = models.DecimalField(blank=True, null=True, decimal_places=10,
             max_digits=13)
+    organizations = models.ManyToManyField(InternationalOrganization,
+            related_name="members")
+
+    objects = CountrySearchManager()
 
     class Meta:
-        abstract = True
+        verbose_name = "country"
+        verbose_name_plural = "countries"
 
     def __unicode__(self):
         return self.name
@@ -26,28 +38,5 @@ class BasePlace(models.Model):
 
     location = property(_get_location, _set_location)
 
-
-class Country(BasePlace):
-    """
-    A model for storing primary data about countries and country-level
-    locations.
-    """
-    population = models.PositiveIntegerField(default=1)
-    government_type = models.CharField(max_length=100, blank=True, null=True)
-
-    objects = CountrySearchManager()
-
-    class Meta:
-        verbose_name = "country"
-        verbose_name_plural = "countries"
-
     def get_absolute_url(self):
         return reverse("country_detail", kwargs={"pk": self.pk})
-
-
-class InternationalOrganization(BasePlace):
-    """
-    A model for storing data about international organizations like treaty
-    alliances and international government.
-    """
-    members = models.ManyToManyField(Country)
