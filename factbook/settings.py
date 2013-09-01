@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'raven.contrib.django.raven_compat',
+    'south',
     'haystack',
     'storages',
     'countries',
