@@ -30,4 +30,4 @@ class InternationalOrganization(models.Model):
     location = property(_get_location, _set_location)
 
     def get_absolute_url(self):
-        return reverse("intl_org_detail", kwargs={"pk": self.pk})
+        return reverse("organization_detail", kwargs={"pk": self.pk})

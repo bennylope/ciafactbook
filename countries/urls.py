@@ -7,4 +7,3 @@ urlpatterns = patterns('',
     url(r'^$', view=country_list, name='country_list'),
     url(r'^(?P<pk>\d+)/$', view=country_detail, name='country_detail'),
 )
-

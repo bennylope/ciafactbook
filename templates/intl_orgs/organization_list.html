@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+
+{% for organization in organizations %}
+<section>
+<h3><a href="{{ organization.get_absolute_url }}">{{ organization }}</a></h3>
+</section>
+{% endfor %}
+{% endblock %}

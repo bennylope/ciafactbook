@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+<h1>{{ organization }}</h1>
+
+<h3>Description</h3>
+<p>{{ organization.description }}</p>
+
+{% endblock %}
