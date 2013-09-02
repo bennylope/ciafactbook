@@ -8,4 +8,6 @@ django-storages==1.1.8
 boto==2.11.0
 raven==3.4.1
 django-haystack==2.1.0
-South==0.8.2
+South==0.8.2                        # Database migrations
+sysenv==0.1.0                       # Environment based configuration
+dj-static==0.0.5                    # Serve static files

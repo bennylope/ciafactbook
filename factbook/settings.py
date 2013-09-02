@@ -1,18 +1,10 @@
 import os
 import dj_database_url
+import sysenv
 
+env = sysenv.load()
 
-def env_var(key, default=None):
-    """Retrieves env vars and makes Python boolean replacements"""
-    val = os.environ.get(key, default)
-    if val == 'True':
-        val = True
-    elif val == 'False':
-        val = False
-    return val
-
-
-DEBUG = env_var('DEBUG', False)
+DEBUG = env.get('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -57,7 +49,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = env_var('MEDIA_ROOT', os.path.join(PROJECT_ROOT, 'media/'))
+MEDIA_ROOT = env.get('MEDIA_ROOT', os.path.join(PROJECT_ROOT, 'media/'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -74,12 +66,12 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = env_var('STATIC_ROOT',
+STATIC_ROOT = env.get('STATIC_ROOT',
         os.path.join(PROJECT_ROOT, 'collectedstaticfiles/'))
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = env_var('STATIC_URL', '/static/')
+STATIC_URL = env.get('STATIC_URL', '/static/')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -89,7 +81,7 @@ STATICFILES_DIRS = (
     (os.path.join(PROJECT_ROOT, 'static/')),
 )
 
-STATICFILES_STORAGE = env_var('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
+STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -99,7 +91,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = env_var('SECRET_KEY', 'r$*+k=5f6h7+@-j(#9=+dm*c-7m7i34im30dz^o8$nvdy)p=$^')
+SECRET_KEY = env.get('SECRET_KEY', 'r$*+k=5f6h7+@-j(#9=+dm*c-7m7i34im30dz^o8$nvdy)p=$^')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -113,8 +105,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'factbook.urls'
@@ -177,18 +168,18 @@ LOGGING = {
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': env_var('BONSAI_URL', 'http://127.0.0.1:9200/'),
+        'URL': env.get('BONSAI_URL', 'http://127.0.0.1:9200/'),
         'INDEX_NAME': 'haystack',
     },
 }
 
 
-AWS_ACCESS_KEY_ID = env_var('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env_var('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env_var('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME')
 
 ALLOWED_HOSTS = ['localhost', 'ciafactbook.herokuapp.com']
 
 RAVEN_CONFIG = {
-    'dsn': env_var('DSN', ''),
+    'dsn': env.get('DSN', ''),
 }
