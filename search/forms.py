@@ -11,8 +11,11 @@ class FactSearchForm(SearchForm):
     Slightly customized search form that allows filtering on the SearchQuerySet
     """
     #government = forms.ChoiceField(required=False, choices=GOVERNMENT_CHOICES)
-    sort = forms.ChoiceField(
-            choices=(('', 'relevance'), ('alpha', 'alpha'), ('distance', 'distance')),
+    sort = forms.ChoiceField(choices=(
+                ('', 'relevance'),
+                ('alpha', 'alpha'),
+                ('distance', 'distance'),
+                ('population', 'population')),
             required=False, widget=forms.HiddenInput)
 
     def search(self):
@@ -34,5 +37,7 @@ class FactSearchForm(SearchForm):
             return sqs.order_by('sort_name')
         elif sort == 'distance':
             return sqs.distance('location', center).order_by('distance')
+        elif sort == 'population':
+            return sqs.order_by('-population')
 
         return sqs

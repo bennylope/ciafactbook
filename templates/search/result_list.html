@@ -21,6 +21,7 @@ Sort by:
     <h3><a href="{{ result.url }}">{{ result.name }}</a></h3>
     <p class="government">{{ result.government }}</p>
     <p>Score: {{ result.score }}</p>
+    <p>Population: {{ result.population|intcomma }}</p>
     {% if sort == 'distance' %}
     <p class="distance">{{ result.distance }} from DjangoCon</p>
     {% endif %}

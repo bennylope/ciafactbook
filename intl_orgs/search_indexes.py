@@ -16,6 +16,12 @@ class OrgIndex(indexes.SearchIndex, indexes.Indexable):
     def get_model(self):
         return InternationalOrganization
 
+    def prepare(self, obj):
+        """
+        Downgrade the relevance of international organizations in search results.
+        """
+        return super(OrgIndex, self).prepare(obj)
+
     def prepare_government(self, obj):
         return u"international organization"
 
