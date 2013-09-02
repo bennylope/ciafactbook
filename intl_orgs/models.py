@@ -18,9 +18,13 @@ class InternationalOrganization(models.Model):
         return self.name
 
     def _get_location(self):
+        if not self.lng and self.lat:
+            return ()
         return self.lng, self.lat
 
     def _set_location(self, lng, lat):
+        if not lng or not lat:
+            raise AttributeError("Both latitude and longitude must be provided")
         self.lng, self.lat = lng, lat
 
     location = property(_get_location, _set_location)

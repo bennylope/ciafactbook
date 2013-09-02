@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     'storages',
     'intl_orgs',
     'countries',
+    'search',
 )
 
 try:

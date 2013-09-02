@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', view=TemplateView.as_view(template_name="index.html"), name='index'),
     url(r'countries/', include('countries.urls')),
+    url(r'search/', include('search.urls')),
     url(r'^haystack/basic/$', include('haystack.urls')),
     url(r'^haystack/custom/$', search_view_factory(
         view_class=SearchView,
@@ -29,4 +30,3 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += staticfiles_urlpatterns()
-

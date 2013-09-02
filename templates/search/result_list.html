@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+<form class="form well form-inline">
+    {{ form }}
+    <input type="submit" value="Search">
+</form>
+
+{% if results %}
+Sort by:
+<ul class="sorting">
+  <li><a href="">Relevance</a></li>
+  <li><a href="">Name</a></li>
+  <li><a href="">Distance from DjangoCon</a></li>
+</ul>
+{% endif %}
+
+{% for result in results %}
+  <section class="result {{ result.government|slugify }}">
+    <h3><a href="{{ result.url }}">{{ result.name }}</a></h3>
+    <p class="government">{{ result.government }}</p>
+  </section>
+{% endfor %}
+{% endblock %}
