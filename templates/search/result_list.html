@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load humanize %}
+{% load humanize search_tags %}
 
 {% block content %}
 <form class="form well form-inline">
@@ -10,9 +10,9 @@
 {% if results %}
 Sort by:
 <ul class="sorting">
-  <li><a href="">Relevance</a></li>
-  <li><a href="">Name</a></li>
-  <li><a href="">Distance from DjangoCon</a></li>
+  <li><a href="?{% query_update 'sort' '' %}">Relevance</a></li>
+  <li><a href="?{% query_update 'sort' 'alpha' %}">Name</a></li>
+  <li><a href="?{% query_update 'sort' 'distance' %}">Distance from DjangoCon</a></li>
 </ul>
 {% endif %}
 
@@ -20,6 +20,10 @@ Sort by:
   <section class="result {{ result.government|slugify }}">
     <h3><a href="{{ result.url }}">{{ result.name }}</a></h3>
     <p class="government">{{ result.government }}</p>
+    <p>Score: {{ result.score }}</p>
+    {% if sort == 'distance' %}
+    <p class="distance">{{ result.distance }} from DjangoCon</p>
+    {% endif %}
   </section>
 {% endfor %}
 {% endblock %}
