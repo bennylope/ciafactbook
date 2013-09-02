@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
 <form class="form well form-inline">
@@ -22,7 +23,7 @@
 {% for result in page.object_list %}
 <section>
 <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h3>
-<p>{{ country.population }}</p>
+<p>{{ country.population|intcomma }}</p>
 </section>
 {% endfor %}
 

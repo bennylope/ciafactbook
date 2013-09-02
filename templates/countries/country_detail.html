@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
 <h1>{{ country }}</h1>
 
-<p>Population: {{ country.population }}</p>
+<p>Population: {{ country.population|intcomma }}</p>
 <p>Government: {{ country.government_type }}</p>
 
 <h3>Background</h3>
