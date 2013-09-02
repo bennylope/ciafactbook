@@ -4,8 +4,8 @@ from .models import Country
 
 
 GOVERNMENT_CHOICES = [('', '')] + [
-        (item.government_type, item.government_type) for
-        item in Country.objects.all()]
+        (c['government_type'], c['government_type']) for
+        c in Country.objects.values('government_type').distinct().order_by('government_type')]
 
 
 class CountrySearchForm(forms.Form):
