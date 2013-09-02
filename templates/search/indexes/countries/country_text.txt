@@ -1,0 +1,9 @@
+{{ object.name }}
+
+{{ object.background|safe }}
+
+{{ object.government_type }}
+
+{% for org in object.organizations.all %}
+  {{ org.name }}
+{% endfor %}
