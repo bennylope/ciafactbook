@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from countries.models import Country
+
 
 class InternationalOrganization(models.Model):
     """
@@ -13,6 +15,7 @@ class InternationalOrganization(models.Model):
             max_digits=13)
     lng = models.DecimalField(blank=True, null=True, decimal_places=10,
             max_digits=13)
+    members = models.ManyToManyField(Country, related_name="organizations")
 
     def __unicode__(self):
         return self.name

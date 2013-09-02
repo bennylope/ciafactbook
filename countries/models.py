@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from intl_orgs.models import InternationalOrganization
 from .managers import CountrySearchManager
 
 
@@ -18,8 +17,6 @@ class Country(models.Model):
             max_digits=13)
     lng = models.DecimalField(blank=True, null=True, decimal_places=10,
             max_digits=13)
-    organizations = models.ManyToManyField(InternationalOrganization,
-            related_name="members")
 
     objects = CountrySearchManager()
 

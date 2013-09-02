@@ -12,6 +12,7 @@ class OrgIndex(indexes.SearchIndex, indexes.Indexable):
     government = indexes.CharField(faceted=True)
     location = indexes.LocationField(null=True)
     url = indexes.CharField(null=True, stored=True, indexed=False)
+    population = indexes.IntegerField(null=True)
 
     def get_model(self):
         return InternationalOrganization
@@ -35,6 +36,12 @@ class OrgIndex(indexes.SearchIndex, indexes.Indexable):
         if obj.location:
             return obj.location
         return None
+
+    def prepare_population(self, obj):
+        members = obj.members.all()
+        if not members:
+            return None
+        return sum([member.population for member in members])
 
     def prepare_url(self, obj):
         return obj.get_absolute_url()
