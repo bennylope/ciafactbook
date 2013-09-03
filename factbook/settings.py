@@ -162,6 +162,13 @@ else:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INTERNAL_IPS = ('127.0.0.1',)
 
+try:
+    from django.contrib.gis.geos import Point
+except ImportError:
+    GEOS_INSTALLED = False
+else:
+    GEOS_INSTALLED = True
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

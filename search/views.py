@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.template import RequestContext
 from .forms import FactSearchForm
@@ -15,4 +16,4 @@ def search(request):
     facets = sq.facet_counts()
     return render(request, "search/result_list.html",
             RequestContext(request, {"results": sq, 'form': form, 'sort': sort,
-                'facets': facets}))
+                'facets': facets, 'use_geo': settings.GEOS_INSTALLED}))

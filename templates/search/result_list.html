@@ -13,7 +13,9 @@ Sort by:
   <li><a href="?{% query_update 'sort' '' %}" class="label label-primary">Relevance</a></li>
   <li><a href="?{% query_update 'sort' 'alpha' %}" class="label label-primary">Name</a></li>
   <li><a href="?{% query_update 'sort' 'population' %}" class="label label-primary">Population</a></li>
-  <li><a href="?{% query_update 'sort' 'distance' %}" class="label label-primary">Distance</a></li>
+  {% if use_geo %}
+    <li><a href="?{% query_update 'sort' 'distance' %}" class="label label-primary">Distance</a></li>
+  {% endif %}
 </ul>
 {% endif %}
 
