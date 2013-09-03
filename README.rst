@@ -1,3 +1,4 @@
+==========================================
 CIA World Factbook: Haystack demonstration
 ==========================================
 
@@ -22,3 +23,10 @@ That's the form of::
 Now you can build your index::
 
     heroku run python manage.py update_index
+
+A note about geospatial searches
+================================
+
+Some of the geospatial imports depend on the GEOS library, which I don't want
+to impose on anyone, distance sorting is limited to systems with this already
+installed.
