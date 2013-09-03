@@ -22,7 +22,7 @@
           <p><a class="btn btn-default" href="{% url 'haystack_search' %}">Check it out &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Customized search</h2>
+          <h2>Customized form</h2>
           <p>Very little customization, but just enough to show how it can be done. Uses an extended SearchForm to add a field and include it for querying.</p>
           <p><a class="btn btn-default" href="{% url 'custom_search' %}">Check it out &raquo;</a></p>
         </div>
@@ -33,6 +33,11 @@
           <h2>Faceted search</h2>
           <p>Adds faceting of the facetable 'government type' field.</p>
           <p><a class="btn btn-default" href="{% url 'faceted_search' %}">Check it out &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Custom search</h2>
+          <p>Skip the predefined Haystack view and use different form patterns.</p>
+          <p><a class="btn btn-default" href="{% url 'factbook_search' %}">Check it out &raquo;</a></p>
         </div>
     </div>
 {% endblock %}
