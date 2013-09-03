@@ -200,11 +200,12 @@ LOGGING = {
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'ENGINE': 'factbook.search_backends.ConfigurableElasticSearchEngine',
         'URL': env.get('BONSAI_URL', 'http://127.0.0.1:9200/'),
         'INDEX_NAME': 'haystack',
     },
 }
+ELASTICSEARCH_DEFAULT_ANALYZER = 'standard'
 
 
 AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
