@@ -12,5 +12,7 @@ def search(request):
     form = FactSearchForm(request.GET)
     sq = form.search()
     sort = form.cleaned_data['sort']  # is_valid called by search method
+    facets = sq.facet_counts()
     return render(request, "search/result_list.html",
-            RequestContext(request, {"results": sq, 'form': form, 'sort': sort}))
+            RequestContext(request, {"results": sq, 'form': form, 'sort': sort,
+                'facets': facets}))

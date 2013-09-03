@@ -1,6 +1,27 @@
 from django import forms
 from haystack.forms import SearchForm
-from haystack.utils.geo import Point
+
+
+class DummyPoint(object):
+    """
+    Satisfies the most basic needs of a Point object for the purpose of search
+    distance without needing any of the GeoDjango dependencies.
+
+    Haystack's `ensure_geometry` function simpy checks that the object has an
+    attribute named `geom_type` which returns a string 'Point'. And for the
+    purpose of getting the values the class needs a `get_coords` method.
+    """
+    points = ()
+    geom_type = 'Point'
+
+    def __init__(self, *args):
+        self.points = args
+
+    def __getitem__(self, index):
+        return self.points[index]
+
+    def get_coords(self):
+        return self[0], self[1]
 
 
 # GOVERNMENT_CHOICES = [('', '')] + [
@@ -24,7 +45,7 @@ class FactSearchForm(SearchForm):
 
         query = self.cleaned_data.get('q', '')
         sqs = self.searchqueryset
-        center = Point(-87.627778,  41.881944)
+        center = DummyPoint(-87.627778,  41.881944)
 
         if query:
             sqs = sqs.auto_query(query)
