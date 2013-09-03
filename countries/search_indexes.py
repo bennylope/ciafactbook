@@ -11,22 +11,10 @@ class CountryIndex(indexes.SearchIndex, indexes.Indexable):
             stored=True)
     government = indexes.CharField(model_attr='government_type', faceted=True)
     population = indexes.IntegerField(model_attr='population')
-    location = indexes.LocationField(null=True)
     url = indexes.CharField(null=True, stored=True, indexed=False)
 
     def get_model(self):
         return Country
-
-    def prepare_location(self, obj):
-        """
-        Populates the location field with a Point value
-
-        Couldn't this have been done using a model_attr keyword argument? Sure,
-        but this makes a nice example of using a prepare method, no?
-        """
-        if obj.location:
-            return obj.location
-        return None
 
     def prepare_url(self, obj):
         return obj.get_absolute_url()
