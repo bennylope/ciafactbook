@@ -7,6 +7,8 @@ in several different ways.
 
 It is set up to deploy to Heroku with only some minimal configuration.
 
+[![Deploy](https://cdn.herokuapp.com/deploy/button.svg)](https://heroku.com/deploy)
+
 After creating your Heroku app (and syncing your database) you'll need
 to add ElasticSearch. For the Bonsai add-on::
 
