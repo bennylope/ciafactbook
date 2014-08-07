@@ -1,0 +1,22 @@
+{
+  "name": "CIA Factbook",
+  "description": "A sample application for introducing Haystack search.",
+  "keywords": [
+    "Django",
+    "Haystack",
+    "ElasticSearch"
+  ],
+  "website": "https://github.com/bennylope/ciafactbook",
+  "repository": "https://github.com/bennylope/ciafactbook",
+  "success_url": "/",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-python",
+    "SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "bonsai:starter"
+  ]
+}
